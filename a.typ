@@ -12,7 +12,7 @@
   "Overview",
 
   [
-    #img("cat.png", auto, 6cm)
+    #img("./figures/cat.png", auto, 6cm)
   ],
 
   [
