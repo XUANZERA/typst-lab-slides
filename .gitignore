@@ -1,7 +1,4 @@
 *.pdf
-*.png
-*.jpg
-*.jpeg
 *.log
 *.tmp
 *.DS_Store
