@@ -1,9 +1,19 @@
+// ============================================================
+// TEMPLATE.typ
+// Local presentation framework + user DSL
+// Use with:
+//   #import "TEMPLATE.typ": *
+//   #show: setup
+//   #tp("Title", "Date")
+// ============================================================
+
+
 // Default metadata
 #let default-title = "Untitled Presentation"
 #let default-subtitle = none
 #let default-date = "2026.5.28"
-#let default-author = "Author"
-#let default-institute = "Institute"
+#let default-author = "梁子轩"
+#let default-institute = "暨南大学 信息科学技术学院"
 
 
 // Colors
@@ -17,7 +27,12 @@
 )
 
 #let beamer-blue = colors.primary
-
+// Fonts
+#let fonts = (
+  body: ("Microsoft YaHei", "Arial"),
+  title: ("Arial", "Microsoft YaHei"),
+  mono: ("Consolas", "Microsoft YaHei"),
+)
 
 // Global states
 #let priv-primary = state("primary", colors.primary)
@@ -65,9 +80,9 @@
   set align(horizon)
 
   set text(
-    font: "Microsoft YaHei",
-    fill: colors.text_body,
-    size: 16pt,
+  font: fonts.body,
+  fill: colors.text_body,
+  size: 16pt,
   )
 
   set page(
@@ -285,7 +300,12 @@
           fill: priv-primary.get(),
           inset: .59cm,
         )[
-          #text(size: 20pt, fill: colors.text_title)[
+          #text(
+            font: fonts.title,
+            size: 20pt,
+            weight: "bold",
+            fill: colors.text_title,
+          )[
             #title
           ]
         ]
@@ -300,6 +320,8 @@
         )[
           #text(size: 10pt, fill: colors.text_title)[
             #priv-date.get(): #priv-title.get()
+            #h(1fr)
+            #priv-author.get()
             #h(1fr)
             #ctr.display("1/1", both: true)
           ]
@@ -396,7 +418,9 @@
     outset: 1em,
   )[
     #text(
+      font: fonts.title,
       size: 24pt,
+      weight: "bold",
       fill: colors.text_title,
     )[
       #title
